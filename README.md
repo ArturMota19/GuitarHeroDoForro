@@ -35,7 +35,7 @@ Os tipos disponíveis são:
 - Para criar uma branch, use: git checkout -b x-nome-da-branch;
 - Após criar a branch pra sua implementação, faça o que quiser nela, pois ainda não está na branch main, logo, não
   oferece risco à branch de produção;
-- Depois de terminar a branch que você estava fazendo, dê git push, solicite o merge da sua branch e marque os outros devs do projeto como revisores do código, uma vez aprovado por TODOS, poderá subir a sua branch pra 'prod', onde será testada para então subir pra main;
+- Depois de terminar a branch que você estava fazendo, dê git push, solicite o merge da sua branch e marque os outros devs do projeto como revisores do código, uma vez aprovado por TODOS, poderá subir pra main;
 - *NÃO CODAR NA PASTA MAIN!*
 
 #4 MANTENDO SUA BRANCH ATUALIZADA
