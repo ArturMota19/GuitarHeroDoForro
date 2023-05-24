@@ -1,7 +1,11 @@
 # Projeto Jogo POO #
 
 
-## Modelagem 
+## Modelagem
+A classe `Game` irá gerenciar todo o funcionamento da partida, como a pontuação, a música, o jogador e o estado do jogo (pausado ou não). A classe `User` irá armazenar o nome do jogador e sua pontuação máxima. A classe `Song` irá armazenar o nome da música, sua dificuldade e a lista de notas. A classe `Notes` irá armazenar a posição da nota, sua velocidade e sua imagem.
+
+Enquanto o jogo estiver rodando, a classe `Game` irá chamar o método `fall()` da classe `Notes` para cada nota da música. Esse método irá atualizar a posição da nota e verificar se ela foi acertada pelo jogador. Caso a nota tenha sido acertada, o método `hit_note()` da classe `User` será chamado, atualizando a pontuação do jogador.
+
 ```mermaid
 classDiagram
       
