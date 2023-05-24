@@ -1,5 +1,47 @@
 # Projeto Jogo POO #
 
+
+## Modelagem 
+```mermaid
+classDiagram
+      
+      Game <|-- Song
+      Song <|-- Notes
+      Game <|-- User
+
+      
+      class Game{
+        -player: User
+        -song: Song
+        -score: int
+        -isPaused: bool
+        play()
+        pause()
+        restart()
+        end()
+      }
+      class User{
+        -highscore: int
+        -name: str
+        -sprite: Image
+        hit_note()
+      }
+      class Notes{
+        -x: int
+        -y: int
+        -sprite: Image
+        -angle: str
+        -speed: float
+
+        fall()
+      }
+      class Song{
+        -name: str
+        -musicSheet: list[Notes]
+        -difficult: str
+      }
+```
+#
 ## Padrão de commit
 
 Os commits devem ser semânticos e seguir o seguinte padrão:
