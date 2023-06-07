@@ -1,6 +1,7 @@
 from tupy import *
 from user import User
 from song import Song
+from notes import Notes
 
 class Game:
     """
@@ -18,11 +19,14 @@ class Game:
     - restart(): reinicia a partida
     - end(): encerra o jogo
     """
+    counter = 0
+
     def __init__(self, player: User, song: Song):
         self.__player = player
         self.__song = song
         self.__score = 0
         self.__isPaused = False
+
 
     @property
     def player(self):
@@ -80,4 +84,29 @@ class Game:
         """
         pass
 
+    def update(self):
+        for i in song.musicSheet:
+            if i.update():
+                song.musicSheet.remove(i)
+                i.destroy()
+
+        if self.counter == 30: # Gera notas aleatórias na tela
+            song.musicSheet.append(Notes(float(random.randint(10,200)), 0.0, "star.png", "angle", 10))
+            self.counter = 0
+
+        self.counter += 1
+        
+
+#nota = Notes(float(random.randint(0,200)), 0.0, "star.png", "angle", 10)
+
+# (x: float, y: float, file: str, angle: str, speed: float) -> None
+
+partitura = []
+
+player = User("Fulano", "avatar.png")
+song = Song("Melodia", partitura, "Easy")
+game = Game(player, song)
+
+def update():
+    game.update()
 run(globals())

@@ -16,27 +16,12 @@ class Notes(Image):
     - fall(): atualiza a posição da nota e verifica se ela foi acertada pelo jogador
     """
     def __init__(self, x: float, y: float, file: str, angle: str, speed: float) -> None:
-        self.__x = x
-        self.__y = y
-        self.__file = file
+        self.file = file
+        self.x = x
+        self.y = y
         self.__angle = angle
         self.__speed = speed
 
-    @property
-    def x(self) -> float:
-        return self.__x
-
-    @x.setter
-    def x(self, value) -> None:
-        self.__x = value
-
-    @property
-    def y(self) -> float:
-        return self.__y
-
-    @y.setter
-    def y(self, value) -> None:
-        self.__y = value
 
     @property
     def file(self) -> str:
@@ -62,9 +47,11 @@ class Notes(Image):
     def speed(self, value) -> None:
         self.__speed = value
 
-    def fall(self):
+    def update(self):
         """
         Atualiza a posição da nota e verifica se ela foi acertada pelo jogador.
         """
-
-        pass
+        if self.y > 500:
+            return True
+        self.y += self.speed
+                

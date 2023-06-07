@@ -17,6 +17,7 @@ class User(Image):
         self.__score = 0
         self.__name = name
         self.__file = file
+        self._hide()
 
     def hit_note(self) -> None:
         """
