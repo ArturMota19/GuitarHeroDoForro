@@ -90,17 +90,19 @@ class Game:
                 song.musicSheet.remove(i)
                 i.destroy()
 
+        # Como não implementamos uma musica ainda
+        ###############################################################################################
         if self.counter == 30: # Gera notas aleatórias na tela
-            song.musicSheet.append(Notes(float(random.randint(10,200)), 0.0, "star.png", "angle", 10))
+            song.musicSheet.append(Notes(float(random.randint(0,3)*50+300), 0.0, "star.png", "angle", 10))
             self.counter = 0
 
         self.counter += 1
-        
+        ################################################################################################
 
-#nota = Notes(float(random.randint(0,200)), 0.0, "star.png", "angle", 10)
 
-# (x: float, y: float, file: str, angle: str, speed: float) -> None
-
+# A partitura é uma lista de tuplas, onde cada tupla contém a posição na tela e o tempo em que ela deve ser tocada
+# A posição na tela é um inteiro representando a posição horizontal na tela, já que o y é fixo em 0
+       
 partitura = []
 
 player = User("Fulano", "avatar.png")

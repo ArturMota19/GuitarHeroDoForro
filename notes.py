@@ -6,8 +6,8 @@ class Notes(Image):
     Classe responsável por armazenar os dados de uma nota.
 
     Atributos privados:
-    - _x: posição horizontal da nota
-    - _y: posição vertical da nota
+    - x: posição horizontal da nota
+    - y: posição vertical da nota
     - _file: imagem da nota
     - _angle: ângulo da nota
     - _speed: velocidade da nota
@@ -19,7 +19,6 @@ class Notes(Image):
         self.file = file
         self.x = x
         self.y = y
-        self.__angle = angle
         self.__speed = speed
 
 
@@ -31,13 +30,6 @@ class Notes(Image):
     def file(self, value) -> None:
         self.__file = value
 
-    @property
-    def angle(self) -> float:
-        return self.__angle
-
-    @angle.setter
-    def angle(self, value) -> None:
-        self.__angle = value
 
     @property
     def speed(self) -> float:
