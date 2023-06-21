@@ -1,25 +1,17 @@
 from tupy import *
+from user import User
 from notes import Notes
 
-class User(Image):
-    """
-    Classe responsável por armazenar os dados do jogador.
-
-    Atributos:
-    - highscore: pontuação máxima do jogador
-    - name: nome do jogador
-    - file: imagem do jogador
-
-    Métodos:
-    - hit_note(): é chamado quando uma nota é acertada pelo jogador
-    """
-    def __init__(self, name: str, file: str) -> None:        
-        self.__highscore = 0
+class Score(Label):
+    def __init__(self) -> None:
+        super().__init__('Score: 0', 40, 9, font='Arial 20')
         self.__score = 0
-        self.__name = name
-        self.__file = file
-        self._hide()
-
+        self.__highscore = 0
+    
+    # def increment(self):
+    #     self.score += 1
+    #     self.text = f'Score: {self.score}'
+        
     def hit_note(self, value: int) -> None:
         """
         Método chamado quando uma nota é acertada pelo jogador.
@@ -32,6 +24,5 @@ class User(Image):
         for item in itens:
             if item.update: # update: atualiza a posição da nota e verifica se ela foi acertada pelo jogador.
                 self.__score += value
+                self.text = f'Score: {self.score}'
             self.__highscore == self.__score
-        
-        pass

@@ -2,6 +2,7 @@ from tupy import *
 from user import User
 from song import Song
 from notes import Notes
+from score import Score
 
 class Game:
     """
@@ -108,6 +109,8 @@ partitura = []
 player = User("Fulano", "avatar.png")
 song = Song("Melodia", partitura, "Easy")
 game = Game(player, song)
+score = Score()
+score.hit_note(5)
 
 def update():
     game.update()
