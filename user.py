@@ -1,5 +1,4 @@
 from tupy import *
-from notes import Notes
 
 class User(Image):
     """
@@ -24,14 +23,5 @@ class User(Image):
         """
         Método chamado quando uma nota é acertada pelo jogador.
         Atualiza a pontuação do jogador.
-        """
-        
-        # def update da class notes
-        # if def(update) is True:
-        itens = [v for k, v in globals().items() if isinstance(v, Notes)]
-        for item in itens:
-            if item.update: # update: atualiza a posição da nota e verifica se ela foi acertada pelo jogador.
-                self.__score += value
-            self.__highscore == self.__score
-        
+        """        
         pass

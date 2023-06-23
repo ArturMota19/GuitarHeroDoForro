@@ -110,7 +110,7 @@ player = User("Fulano", "avatar.png")
 song = Song("Melodia", partitura, "Easy")
 game = Game(player, song)
 score = Score()
-score.hit_note(5)
+score.increment(5)
 
 def update():
     game.update()
