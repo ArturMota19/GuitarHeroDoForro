@@ -40,9 +40,6 @@ class Notes(Image):
         self.__speed = value
 
     def update(self):
-        """
-        Atualiza a posição da nota e verifica se ela foi acertada pelo jogador.
-        """
         if self.y > 500:
             return True
         self.y += self.speed

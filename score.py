@@ -13,14 +13,17 @@ class Score(Label):
         Método chamado quando uma nota é acertada pelo jogador.
         Atualiza a pontuação do jogador.
         """
-        
-        itens = [v for k, v in globals().items() if isinstance(v, Notes)]
-        for item in itens:
-            if item.update: # update: atualiza a posição da nota e verifica se ela foi acertada pelo jogador.
-                self.__score += value
-                self.text = f'Score: {self.__score}'
+        self.__score += value
+        self.text = f'Score: {self.__score}'
                 
         if self.__score >= self.__highscore:
             self.__highscore == self.__score
         else:
             self.__highscore == self.__highscore
+    def decrement(self, value: int) -> None:
+        """
+        Atualiza a pontuação do jogador.
+        """
+        self.__score -= value
+        self.text = f'Score: {self.__score}'
+                
