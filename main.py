@@ -35,7 +35,7 @@ def update():
 			NotasDireitaW.remove(i)
 			i.destroy()
    	#Partitura para mais à esquerda
-	if keyboard.is_key_just_down('q'):
+	if keyboard.is_key_just_down('q') and len(NotasEsquerdaQ) != 0:
 		if h[0].y / NotasEsquerdaQ[0].y >= 0.95 and h[0].y / NotasEsquerdaQ[0].y <= 1.18:
 			NotasEsquerdaQ[0].y += 501
 			scorePlayer.increment(10)
@@ -44,7 +44,7 @@ def update():
 			scorePlayer.decrement(5)
    
    	#Partitura para mais à direita
-	if keyboard.is_key_just_down('w'):
+	if keyboard.is_key_just_down('w') and len(NotasDireitaW) != 0:
 		if h[1].y / NotasDireitaW[0].y >= 0.95 and h[1].y / NotasDireitaW[0].y <= 1.18:
 			NotasDireitaW[0].y += 501
 			scorePlayer.increment(10)
