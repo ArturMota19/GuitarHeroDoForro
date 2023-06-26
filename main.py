@@ -21,6 +21,13 @@ class HitBox(Image):
 	def __init__(self, x: float, y: float) -> None:
 		self.x = x
 		self.y = y
+  
+class PersonagemAssets(Image):
+	def __init__(self, file) -> None:
+		self.x = 500
+		self.y = 200
+		self.file = file
+
 
 """
 	Tentativa de implementação por qwer (por hora) no update, sendo;
@@ -44,6 +51,8 @@ def update():
 		if h[0].y / NotasEsquerdaQ[0].y >= 0.95 and h[0].y / NotasEsquerdaQ[0].y <= 1.18:
 			NotasEsquerdaQ[0].y += 501
 			scorePlayer.increment(10)
+			randomNumero = random.randint(1, 38)
+			personagem.file = f'Personagem{randomNumero}.png'
 		else:
 			NotasEsquerdaQ[0].y += 501
 			scorePlayer.decrement(5)
@@ -53,6 +62,8 @@ def update():
 		if h[1].y / NotasDireitaW[0].y >= 0.95 and h[1].y / NotasDireitaW[0].y <= 1.18:
 			NotasDireitaW[0].y += 501
 			scorePlayer.increment(10)
+			randomNumero = random.randint(1, 38)
+			personagem.file = f'Personagem{randomNumero}.png'
 		else:
 			NotasDireitaW[0].y += 501
 			scorePlayer.decrement(5)
@@ -64,20 +75,31 @@ def update():
 	Lembrando que o código funciona por ordem, então a nota de posição 1 no array NÃO PODE estar em uma
 	Posição maior que a nota de posição 0.
 """
-#Partitura para mais à esquerda
 bg = Fundo()
 h = [HitBox(100, 400), HitBox(200, 400)]
-NotasEsquerdaQ = [Notes(100,-20,'',0,3 ), Notes(100,-52,'',0,3 ), Notes(100,-93,'',0,3 ), Notes(100,-147,'',0,3 ),
-                  Notes(100,-230,'',0,3 ),Notes(100,-370,'',0,3 ),Notes(100,-450,'',0,3 ),Notes(100,-564,'',0,3 ),
-                  Notes(100,-684,'',0,3 ),Notes(100,-759,'',0,3 )
-                  ]
+
+#Partitura para mais à esquerda
+NotasEsquerdaQ = []
+ValorPartituraQ = -50
+
+for i in range(30):
+    varIntermediaria = ValorPartituraQ -100
+    random1 = random.randint(varIntermediaria, ValorPartituraQ)
+    NotasEsquerdaQ.append(Notes(100, random1, '', 0, 3))
+    ValorPartituraQ -= 100
+
 #Partitura para mais à direita
-NotasDireitaW = [Notes(200,-50,'',0,5 ), Notes(200,-120,'',0,5 ), Notes(200,-250,'',0,5 ), Notes(200,-300,'',0,5 ),
-                 Notes(200,-360,'',0,5 ),Notes(200,-400,'',0,5 ),Notes(200,-490,'',0,5 ),Notes(200,-560,'',0,5 ),
-                 Notes(200,-780,'',0,5 ),Notes(200,-800,'',0,5 ),Notes(200,-840,'',0,5 ),Notes(200,-900,'',0,5 ),
-                 Notes(200,-980,'',0,3 ),Notes(200,-1060,'',0,3 ),Notes(200,-1200,'',0,3 )
-                 ]
+NotasDireitaW = []
+ValorPartituraW = -50
+
+for i in range(45):
+    varIntermediaria = ValorPartituraW -75
+    random1 = random.randint(varIntermediaria, ValorPartituraW)
+    NotasDireitaW.append(Notes(200, random1, '', 0, 5))
+    ValorPartituraW -= 75
 
 
+global personagem
+personagem = PersonagemAssets('Personagem1.png')
 scorePlayer = Score()
 run(globals())
