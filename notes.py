@@ -20,16 +20,7 @@ class Notes(Image):
         self.x = x
         self.y = y
         self.__speed = speed
-
-
-    @property
-    def file(self) -> str:
-        return self.__file
-
-    @file.setter
-    def file(self, value) -> None:
-        self.__file = value
-
+        self.angle = angle
 
     @property
     def speed(self) -> float:
@@ -43,4 +34,5 @@ class Notes(Image):
         if self.y > 500:
             return True
         self.y += self.speed
+
                 
