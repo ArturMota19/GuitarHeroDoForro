@@ -2,7 +2,6 @@
 from tupy import *
 from score import Score
 from notes import Notes
-from threading import Timer
 
 class Star(Image):
 	def __init__(self, x: float) -> None:
@@ -12,11 +11,11 @@ class Star(Image):
 		if self.y > 500:
 			return True
 
-class Teste(Image):
-	def __init__(self) -> None:
-		self.x = 250
-		self.y = 250
-		self.file = 'nota2.png'
+class Fundo(Image):
+    def __init__(self):
+        self.y = 250
+        self.x = 450
+        self.file = 'bg.png'
 
 class HitBox(Image):
 	def __init__(self, x: float, y: float) -> None:
@@ -59,7 +58,15 @@ def update():
 			scorePlayer.decrement(5)
    
 
+
+"""
+	É possível fazer notas aleatórias usando randomint e definindo um intervalo de x à y pra cada Nota.
+	Lembrando que o código funciona por ordem, então a nota de posição 1 no array NÃO PODE estar em uma
+	Posição maior que a nota de posição 0.
+"""
 #Partitura para mais à esquerda
+bg = Fundo()
+h = [HitBox(100, 400), HitBox(200, 400)]
 NotasEsquerdaQ = [Notes(100,-20,'',0,3 ), Notes(100,-52,'',0,3 ), Notes(100,-93,'',0,3 ), Notes(100,-147,'',0,3 ),
                   Notes(100,-230,'',0,3 ),Notes(100,-370,'',0,3 ),Notes(100,-450,'',0,3 ),Notes(100,-564,'',0,3 ),
                   Notes(100,-684,'',0,3 ),Notes(100,-759,'',0,3 )
@@ -71,7 +78,6 @@ NotasDireitaW = [Notes(200,-50,'',0,5 ), Notes(200,-120,'',0,5 ), Notes(200,-250
                  Notes(200,-980,'',0,3 ),Notes(200,-1060,'',0,3 ),Notes(200,-1200,'',0,3 )
                  ]
 
-h = [HitBox(100, 400), HitBox(200, 400)]
-t = Teste()
+
 scorePlayer = Score()
 run(globals())

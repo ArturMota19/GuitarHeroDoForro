@@ -43,4 +43,5 @@ class Notes(Image):
         if self.y > 500:
             return True
         self.y += self.speed
+
                 
