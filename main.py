@@ -12,6 +12,12 @@ class Star(Image):
 		if self.y > 500:
 			return True
 
+class Teste(Image):
+	def __init__(self) -> None:
+		self.x = 250
+		self.y = 250
+		self.file = 'nota2.png'
+
 class HitBox(Image):
 	def __init__(self, x: float, y: float) -> None:
 		self.x = x
@@ -66,5 +72,6 @@ NotasDireitaW = [Notes(200,-50,'',0,5 ), Notes(200,-120,'',0,5 ), Notes(200,-250
                  ]
 
 h = [HitBox(100, 400), HitBox(200, 400)]
+t = Teste()
 scorePlayer = Score()
 run(globals())
