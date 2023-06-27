@@ -26,8 +26,8 @@ class HitBox(Image):
   
 class PersonagemAssets(Image):
 	def __init__(self, file) -> None:
-		self.x = 500
-		self.y = 200
+		self.x = 770
+		self.y = 310
 		self.file = file
 
 
