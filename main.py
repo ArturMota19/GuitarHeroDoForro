@@ -2,7 +2,8 @@
 from tupy import *
 from score import Score
 from notes import Notes
-
+from winsound import PlaySound
+import pygame
 class Star(Image):
 	def __init__(self, x: float) -> None:
 		self.x = x
@@ -99,7 +100,15 @@ for i in range(45):
     random1 = random.randint(varIntermediaria, ValorPartituraDireita)
     NotasDireita.append(Notes(200, random1, 'Notes2.png',180, 5))
     ValorPartituraDireita -= 75
-
+    
+######### uso permitido do pygame para tocar a música ##########
+pygame.init()	
+def play(music):
+    pygame.mixer.music.load(f"assets/sounds/{music}")
+    pygame.mixer.music.play()
+################################################################   
+ 
+play("reboco.mp3")
 
 global personagem
 personagem = PersonagemAssets('Personagem1.png')
