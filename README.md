@@ -9,9 +9,9 @@ Enquanto o jogo estiver rodando, a classe `Game` irá chamar o método `fall()` 
 ```mermaid
 classDiagram
       
-      Game <|-- Song
-      Song <|-- Notes
-      Game <|-- User
+      Game --> Song
+      Song --> Notes
+      Game --> User
 
       
       class Game{
@@ -33,7 +33,7 @@ classDiagram
       class Notes{
         -x: int
         -y: int
-        -sprite: Image
+        -file: Image
         -angle: str
         -speed: float
 
