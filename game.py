@@ -4,6 +4,7 @@ from song import Song
 from notes import Notes
 from score import Score
 
+
 class Game:
     """
     Classe responsável por gerenciar o funcionamento da partida.

@@ -2,6 +2,7 @@
 from tupy import *
 from score import Score
 from notes import Notes
+from menu import Menu
 
 class Star(Image):
 	def __init__(self, x: float) -> None:
@@ -41,10 +42,18 @@ def update():
 	global NotasEsquerda
 	global NotasDireita
 	for i in NotasEsquerda:
+		""" Função para deletar nota ao passar de y 450 """
+		if i.y > 450:
+			NotasEsquerda.remove(i)
+			i.destroy()
 		if i.update():
 			NotasEsquerda.remove(i)
 			i.destroy()
 	for i in NotasDireita:
+		""" Função para deletar nota ao passar de y 450 """
+		if i.y > 450:
+			NotasDireita.remove(i)
+			i.destroy()
 		if i.update():
 			NotasDireita.remove(i)
 			i.destroy()

@@ -31,8 +31,8 @@ class Notes(Image):
         self.__speed = value
 
     def update(self):
-        if self.y > 500:
-            return True
+        if self.y > 450:
+            return False
         self.y += self.speed
 
                 
