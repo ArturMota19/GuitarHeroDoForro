@@ -289,10 +289,10 @@ if menu.end == False:
 	NotasCima = []
 	ValorPartituraCima = -50
 
-	for i in range(90):
+	for i in range(80):
 		varIntermediaria = ValorPartituraCima -75
 		random1 = random.randint(varIntermediaria, ValorPartituraCima)
-		NotasCima.append(Notes(400, random1, 'Notes2.png', 270, 9))
+		NotasCima.append(Notes(400, random1, 'Notes2.png', 270, 8))
 		ValorPartituraCima -= 75
   
 	global personagem
