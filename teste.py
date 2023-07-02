@@ -1,6 +1,6 @@
 from menu import Menu
 from tupy import *
 
-menu = Menu()
+memu = Menu()
 
 run(globals())
