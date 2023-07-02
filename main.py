@@ -32,17 +32,24 @@ class PersonagemAssets(Image):
 	r -> mais à direita
 """
 menu = Menu()
-
-
-if menu._end == True:
+print(menu.end)
+if menu.file == 'start.png':
 	def update():
 		global NotasEsquerda
 		global NotasDireita
 		for i in NotasEsquerda:
+			""" Função para deletar nota ao passar de y 450 """
+			if i.y > 450:
+				NotasEsquerda.remove(i)
+				i.destroy()
 			if i.update():
 				NotasEsquerda.remove(i)
 				i.destroy()
 		for i in NotasDireita:
+			""" Função para deletar nota ao passar de y 450 """
+			if i.y > 450:
+				NotasDireita.remove(i)
+				i.destroy()
 			if i.update():
 				NotasDireita.remove(i)
 				i.destroy()
