@@ -1,10 +1,8 @@
 from tupy import *
-from user import User
-from notes import Notes
 
 class Score(Label):
     def __init__(self) -> None:
-        super().__init__('Score: 0', 40, 9, font='Arial 20')
+        super().__init__('Pontuação: 0', 40, 9, font='Arial 30', color='white')
         self.__score = 0
         self.__highscore = 0
         
@@ -14,7 +12,7 @@ class Score(Label):
         Atualiza a pontuação do jogador.
         """
         self.__score += value
-        self.text = f'Score: {self.__score}'
+        self.text = f'Pontuação: {self.__score}'
                 
         if self.__score >= self.__highscore:
             self.__highscore == self.__score
@@ -25,5 +23,6 @@ class Score(Label):
         Atualiza a pontuação do jogador.
         """
         self.__score -= value
-        self.text = f'Score: {self.__score}'
+        self.text = f'Pontuação: {self.__score}'
                 
+
