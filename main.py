@@ -50,7 +50,12 @@ def update():
 			i.destroy()
    	#Partitura para mais à esquerda
 	if keyboard.is_key_just_down('Left') and len(NotasEsquerda) != 0:
-		if h[0].y / NotasEsquerda[0].y >= 0.95 and h[0].y / NotasEsquerda[0].y <= 1.18:
+		if h[0].y / NotasEsquerda[0].y > 1.18 and h[0].y / NotasEsquerda[0].y <= 1.41:
+			NotasEsquerda[0].y += 501
+			scorePlayer.increment(5)
+			randomNumero = random.randint(1, 38)
+			personagem.file = f'Personagem{randomNumero}.png'
+		elif h[0].y / NotasEsquerda[0].y >= 0.95 and h[0].y / NotasEsquerda[0].y <= 1.18:
 			NotasEsquerda[0].y += 501
 			scorePlayer.increment(10)
 			randomNumero = random.randint(1, 38)
@@ -61,7 +66,12 @@ def update():
    
    	#Partitura para mais à direita
 	if keyboard.is_key_just_down('Right') and len(NotasDireita) != 0:
-		if h[1].y / NotasDireita[0].y >= 0.95 and h[1].y / NotasDireita[0].y <= 1.18:
+		if h[1].y / NotasDireita[0].y > 1.18 and h[1].y / NotasDireita[0].y <= 1.41:
+			NotasDireita[0].y += 501
+			scorePlayer.increment(5)
+			randomNumero = random.randint(1, 38)
+			personagem.file = f'Personagem{randomNumero}.png'
+		elif h[1].y / NotasDireita[0].y >= 0.95 and h[1].y / NotasDireita[0].y <= 1.18:
 			NotasDireita[0].y += 501
 			scorePlayer.increment(10)
 			randomNumero = random.randint(1, 38)
