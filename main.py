@@ -20,6 +20,7 @@ class HitBox(Image):
 		self.y = y
 		self.file = file
 		self.angle = angle
+		self._hide()
   
 class PersonagemAssets(Image):
 	def __init__(self, file) -> None:
@@ -35,31 +36,62 @@ class PersonagemAssets(Image):
 
 menu = Menu()
 
-if menu.end == False:
-	def update():
-		if keyboard.is_key_just_down('space'):
-			menu.file = 'dificult.png'
-		if menu.file == 'dificult.png':
-			if keyboard.is_key_just_down('1'):
-					""" implementar função da dificuldade fácil """
-					menu.easy = True
-     
-					menu.file = 'bg.png'
-					menu.end = True
-			elif keyboard.is_key_just_down('2'):
-					""" implementar função da dificuldade média """
-					menu.medium = True
-     
-					menu.file = 'bg.png'
-					menu.end = True
-			elif keyboard.is_key_just_down('3'):
-					""" implementar função da dificuldade difícil """
-					menu.hard = True
+######### uso permitido do pygame para tocar a música ##########
+pygame.init()	
+def play(music):
+    pygame.mixer.music.load(f"assets/sounds/{music}")
+    pygame.mixer.music.play()
+################################################################   
 
-					menu.file = 'bg.png'
-					menu.end = True
-					
-		if menu.end == True and menu.easy == True:
+h = [HitBox(100, 400, 'HitBoxArrow.png', 0), HitBox(200, 400, 'HitBoxArrow.png', 180), HitBox(300, 400, 'HitBoxArrow.png', 90), HitBox(400, 400, 'HitBoxArrow.png', 270)]
+
+if menu._end == False:
+	def update():
+		global h
+		if keyboard.is_key_just_down('space'):
+			menu._file = 'music.png'
+
+		""" if para o menu de seleção de músicas """
+
+		if keyboard.is_key_just_down('a'):
+			menu._file = 'dificult.png'
+			play('tarecoemariola.ogg')
+		if keyboard.is_key_just_down('b'):
+			menu._file = 'dificult.png'
+			play('deixaeutesuperar.ogg')
+		if keyboard.is_key_just_down('c'):
+			menu._file = 'dificult.png'
+			play('ocheirodecarolina.ogg')
+		if keyboard.is_key_just_down('d'):
+			menu._file = 'dificult.png'
+			play('')
+		if keyboard.is_key_just_down('e'):
+			menu._file = 'dificult.png'
+			play('luaminha.ogg')
+
+		""" if para o menu de dificuldades """
+
+		if menu._file == 'dificult.png':
+			if keyboard.is_key_just_down('1'):
+					menu._easy = True
+     
+					menu._file = 'bg.png'
+					menu._end = True
+			elif keyboard.is_key_just_down('2'):
+					menu._medium = True
+     
+					menu._file = 'bg.png'
+					menu._end = True
+			elif keyboard.is_key_just_down('3'):
+					menu._hard = True
+
+					menu._file = 'bg.png'
+					menu._end = True
+		## modo facil		
+		if menu._end == True and menu._easy == True:
+			""" o _show() é para mostrar as 2 hitboxs do modo fácil """
+			h[0]._show()
+			h[1]._show()
 			global NotasEsquerda
 			global NotasDireita
 			for i in NotasEsquerda:
@@ -103,7 +135,11 @@ if menu.end == False:
 					scorePlayer.decrement(5)
 	
 		## modo medio
-		if menu.end == True and menu.medium == True:
+		if menu._end == True and menu._medium == True:
+			""" o _show() é para mostrar as 3 hitboxs do modo fácil """
+			h[0]._show()
+			h[1]._show()
+			h[2]._show()
 			global NotasBaixo
 			for i in NotasEsquerda:
 				""" Função para deletar nota ao passar de y 450 e decrementa o score em 5 """
@@ -166,7 +202,12 @@ if menu.end == False:
 					scorePlayer.decrement(5)
 
 		## modo dificil
-		if menu.end == True and menu.hard == True:
+		if menu._end == True and menu._hard == True:
+			""" o _show() é para mostrar as 4 hitboxs do modo fácil """
+			h[0]._show()
+			h[1]._show()
+			h[2]._show()
+			h[3]._show()
 			global NotasCima
 			for i in NotasEsquerda:
 				""" Função para deletar nota ao passar de y 450 e decrementa o score em 5 """
@@ -254,7 +295,7 @@ if menu.end == False:
 		Lembrando que o código funciona por ordem, então a nota de posição 1 no array NÃO PODE estar em uma
 		Posição maior que a nota de posição 0.
 	"""
-	h = [HitBox(100, 400, 'HitBoxArrow.png', 0), HitBox(200, 400, 'HitBoxArrow.png', 180), HitBox(300, 400, 'HitBoxArrow.png', 90), HitBox(400, 400, 'HitBoxArrow.png', 270)]
+	
 	#Partitura para mais à esquerda
 	NotasEsquerda = []
 	ValorPartituraEsquerda = -50
@@ -299,12 +340,4 @@ if menu.end == False:
 	personagem = PersonagemAssets('Personagem1.png')
 	scorePlayer = Score()
 
-######### uso permitido do pygame para tocar a música ##########
-pygame.init()	
-def play(music):
-    pygame.mixer.music.load(f"assets/sounds/{music}")
-    pygame.mixer.music.play()
-################################################################   
-
-play("reboco.mp3")
 run(globals())

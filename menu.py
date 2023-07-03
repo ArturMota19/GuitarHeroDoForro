@@ -1,11 +1,9 @@
 from tupy import *
 
-class Menu(Image):
-    def __init__(self):
-        self.file = 'start.png'
-        self.x = 450
-        self.y = 250
-        self.end = False
-        self.easy = False
-        self.medium = False
-        self.hard = False
+class Menu(BaseImage):
+    def __init__(self) -> None:
+        super().__init__(file = 'start.png', x = 450, y= 250)
+        self._end = False
+        self._easy = False
+        self._medium = False
+        self._hard = False
