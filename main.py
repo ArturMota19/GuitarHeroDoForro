@@ -259,40 +259,40 @@ if menu.end == False:
 	NotasEsquerda = []
 	ValorPartituraEsquerda = -50
 
-	for i in range(22):
+	for i in range(30):
 		varIntermediaria = ValorPartituraEsquerda -100
 		random1 = random.randint(varIntermediaria, ValorPartituraEsquerda)
-		NotasEsquerda.append(Notes(100, random1, 'Notes.png',0, 3))
+		NotasEsquerda.append(Notes(100, random1, 'Notes.png',0, 2.5))
 		ValorPartituraEsquerda -= 100
 
 	#Partitura para mais à direita
 	NotasDireita = []
 	ValorPartituraDireita = -50
 
-	for i in range(50):
+	for i in range(60):
 		varIntermediaria = ValorPartituraDireita -75
 		random1 = random.randint(varIntermediaria, ValorPartituraDireita)
-		NotasDireita.append(Notes(200, random1, 'Notes2.png',180, 5))
+		NotasDireita.append(Notes(200, random1, 'Notes2.png',180, 3.5))
 		ValorPartituraDireita -= 75
   
 	#Partitura para baixo
 	NotasBaixo = []
 	ValorPartituraBaixo = -50
 
-	for i in range(70):
+	for i in range(75):
 		varIntermediaria = ValorPartituraBaixo -75
 		random1 = random.randint(varIntermediaria, ValorPartituraBaixo)
-		NotasBaixo.append(Notes(300, random1, 'Notes.png', 90, 7))
+		NotasBaixo.append(Notes(300, random1, 'Notes.png', 90, 4))
 		ValorPartituraBaixo -= 75
 
 	#Partitura para cima
 	NotasCima = []
 	ValorPartituraCima = -50
 
-	for i in range(80):
+	for i in range(90):
 		varIntermediaria = ValorPartituraCima -75
 		random1 = random.randint(varIntermediaria, ValorPartituraCima)
-		NotasCima.append(Notes(400, random1, 'Notes2.png', 270, 8))
+		NotasCima.append(Notes(400, random1, 'Notes2.png', 270, 6.5))
 		ValorPartituraCima -= 75
   
 	global personagem
