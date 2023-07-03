@@ -64,7 +64,7 @@ if menu._end == False:
 			play('ocheirodecarolina.ogg')
 		if keyboard.is_key_just_down('d'):
 			menu._file = 'dificult.png'
-			play('')
+			play('oxotedasmeninas.ogg')
 		if keyboard.is_key_just_down('e'):
 			menu._file = 'dificult.png'
 			play('luaminha.ogg')
