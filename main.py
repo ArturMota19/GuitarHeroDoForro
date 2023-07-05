@@ -39,7 +39,7 @@ menu = Menu()
 ######### uso permitido do pygame para tocar a música ##########
 pygame.init()	
 def play(music):
-    pygame.mixer.music.load(f"assets/sounds/{music}")
+    pygame.mixer.music.load(f"pooGame/assets/sounds/{music}")
     pygame.mixer.music.play()
 ################################################################   
 
