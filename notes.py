@@ -15,7 +15,7 @@ class Notes(Image):
     Métodos públicos:
     - fall(): atualiza a posição da nota e verifica se ela foi acertada pelo jogador
     """
-    def __init__(self, x: float, y: float, file: str, angle: str, speed: float) -> None:
+    def __init__(self, x: float, y: float, file: str, angle: int, speed: float) -> None:
         self.file = file
         self.x = x
         self.y = y

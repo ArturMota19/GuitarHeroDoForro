@@ -2,7 +2,7 @@ from tupy import *
 
 class Score(Label):
     def __init__(self) -> None:
-        super().__init__('Pontuação: 0', 40, 9, font='Arial 30', color='white')
+        super().__init__('Pontuação: 0', 500, 9, font='Helvetica 30', color='white')
         self.__score = 0
         self.__highscore = 0
         
